@@ -13,8 +13,14 @@
    student union.
 
 */
-
-var thisDate = new Date("October 12, 2018");
+//The variables below all share and convert information to create a single "day" value. The first (thisDate) variable is given a date as its value. The second variable (dateString) changes the date into string informaiton. The third variable (dateHTML) takes the value from "thisDate" and places it in an HTML header. The forth variable (thisDay) takes only the week day value form "thisDate". 
+var thisDate = new Date("10/12/2018");
+var dateString = thisDate.toLocaleString();
+var dateHTML = "<h2>" + thisDate + "</h2>";
+var thisDay = thisDate.getDay();
+// The new variable (eventHTML) takes all the information associated with the "thisDay" variable. All the information associated with the "dateHTML" and "eventHTML" variables is rendered after the last tag from the "unionToday" id element.
+var eventHTML = getEvent(thisDay);
+document.getElementById("unionToday").insertAdjacentHTML("beforeend", dateHTML + eventHTML);
 
 function getEvent(day) {
     var eventHTML;
